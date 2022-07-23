@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+    <header>
+        <div class="jumbotron jumbotron-fluid custom-jumbotron">
+            <div class="container-fluid">
+              <h1 class="display-4 custom-display">Weather Dashboard</h1>
+            </div>
+          </div>
+    </header>
+
+    <aside>
+      <form id="city-search-form">
+        <div class="form-group">
+          <label id="city-search">Search for a City</label>
+          <input type="text" class="form-control" id="search-input" placeholder="e.g. San Diego">
+        </div>
+        <button type="search" class="btn btn-primary">Search</button>
+      </form>
+    </aside>
+
+    <main>
+      <section class="current-city">
+        <h1 id="current-city-name"></h1>
+        <p id="currrent-temp"></p>
+        <p id="current-wind"></p>
+        <p id="current-humidity"></p>
+        <p id="uv-index"></p>
+      </section>
+      <section class="5-day-forecast">
+        <div class="5-dy-cards"></div>
+      </section>
+    </main>
+
+  </body>
+  <script src="./assets/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</html>

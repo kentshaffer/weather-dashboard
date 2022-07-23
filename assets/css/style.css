@@ -1,0 +1,8 @@
+.custom-jumbotron {
+    background-image: linear-gradient(to right, rgb(172, 172, 255), rgb(168, 249, 249));
+    color: white;
+}
+
+.custom-display {
+    font-weight: bolder;
+}
