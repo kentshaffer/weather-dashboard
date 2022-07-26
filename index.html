@@ -18,32 +18,39 @@
             </div>
           </div>
     </header>
-
-    <aside>
+    <main class="row">
+    <aside class="col-4">
       <form id="city-search-form">
         <div class="form-group">
           <label id="city-search">Search for a City</label>
           <input type="text" class="form-control" id="search-input" placeholder="e.g. San Diego">
         </div>
         <button type="search" class="btn btn-primary">Search</button>
+        <div id="5-day-container" class="list-group"></div>
       </form>
     </aside>
 
-    <main>
-      <section class="current-city">
-        <h1 id="current-city-name"></h1>
-        <p id="currrent-temp"></p>
-        <p id="current-wind"></p>
-        <p id="current-humidity"></p>
-        <p id="uv-index"></p>
+
+      <section class="col-7 current-city-icon">
+        <div class="current-header" style="border: 1px solid black">
+          <h3 class="current-city">san diego</h3>
+          <h3 class="current-date">07/26/2022</h3>
+          <h3 class="current-weather-icon">rain</h3>
+        </div>
+        <div class="current-weather-conditions">
+          <p id="current-temp"></p>
+          <p id="current-wind"></p>
+          <p id="current-humidity"></p>
+          <p id="uv"></p>
+        </div>
       </section>
-      <section class="5-day-forecast">
-        <div class="5-dy-cards"></div>
+      <section class="col-7 5-day-forecast" style="border: 1px solid black">
+        <div id="5-day-cards"></div>
       </section>
     </main>
 
   </body>
-  <script src="./assets/js/script.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./assets/js/script.js"></script>
 </html>
