@@ -19,16 +19,16 @@
           </div>
     </header>
     <main class="row">
-    <aside class="col-4">
-      <form id="city-search-form">
-        <div class="form-group">
-          <label id="city-search">Search for a City</label>
-          <input type="text" class="form-control" id="search-input" placeholder="e.g. San Diego">
-        </div>
-        <button type="search" class="btn btn-primary">Search</button>
-        <div id="5-day-container" class="list-group"></div>
-      </form>
-    </aside>
+      <aside class="col-4">
+        <form id="city-search-form">
+          <div class="form-group">
+            <label id="city-search">Search for a City</label>
+            <input type="text" class="form-control" id="search-input" placeholder="e.g. San Diego">
+          </div>
+          <button type="search" class="col-12 btn btn-primary">Search</button>
+          <div id="5-day-container" class="list-group"></div>
+        </form>
+      </aside>
 
 
       <section class="col-7 current-city-icon">
@@ -44,8 +44,54 @@
           <p id="uv"></p>
         </div>
       </section>
-      <section class="col-7 5-day-forecast" style="border: 1px solid black">
-        <div id="5-day-cards"></div>
+
+      <section class="col-4"></section>
+      <section class="col-7 five-day-forecast" style="border: 1px solid black">
+        <div class="col card">
+          <div class="card-body">
+            <h5 id="card-title" id="one-day-date"></h5>
+            <h6 id="one-day-icon"></h6>
+            <p id="one-day-temp"></p>
+            <p id="one-day-wind"></p>
+            <p id="one-day-humidity"></p>
+          </div>
+        </div>
+        <div class="col card">
+          <div class="card-body">
+            <h5 id="card-title" id="two-day-date"></h5>
+            <h6 id="two-day-icon"></h6>
+            <p id="two-day-temp"></p>
+            <p id="two-day-wind"></p>
+            <p id="two-day-humidity"></p>
+          </div>
+        </div>
+        <div class="col card">
+          <div class="card-body">
+            <h5 id="card-title" id="three-day-date"></h5>
+            <h6 id="three-day-icon"></h6>
+            <p id="three-day-temp"></p>
+            <p id="three-day-wind"></p>
+            <p id="three-day-humidity"></p>
+          </div>
+        </div>
+        <div class="col card">
+          <div class="card-body">
+            <h5 id="card-title" id="four-day-date"></h5>
+            <h6 id="four-day-icon"></h6>
+            <p id="four-day-temp"></p>
+            <p id="four-day-wind"></p>
+            <p id="four-day-humidity"></p>
+          </div>
+        </div>
+        <div class="col card">
+          <div class="card-body">
+            <h5 id="card-title" id="five-day-date"></h5>
+            <h6 id="five-day-icon"></h6>
+            <p id="five-day-temp"></p>
+            <p id="five-day-wind"></p>
+            <p id="five-day-humidity"></p>
+          </div>
+        </div>
       </section>
     </main>
 

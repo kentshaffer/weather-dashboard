@@ -1,14 +1,20 @@
 let citySearchFormEl = document.querySelector('#city-search-form');
 let citySearchEL = document.querySelector('#search-input');
 let apiKey = 'b5e97495fa10e207fda402aae2a3635f';
-let currentWeatherTitleEl = document.querySelector('.current-city')
-let currentWeatherIconEl = document.querySelector('.current-weather-icon')
-let currentDateEl = document.querySelector('.current-date')
+let currentWeatherTitleEl = document.querySelector('.current-city');
+let currentWeatherIconEl = document.querySelector('.current-weather-icon');
+let currentDateEl = document.querySelector('.current-date');
 
-let currentTempEl = document.querySelector('#current-temp')
-let currentWindEl = document.querySelector('#current-wind')
-let currentHumidityEl = document.querySelector('#current-humidity')
-let UV = document.querySelector('#uv')
+let currentTempEl = document.querySelector('#current-temp');
+let currentWindEl = document.querySelector('#current-wind');
+let currentHumidityEl = document.querySelector('#current-humidity');
+let UV = document.querySelector('#uv');
+
+let oneDayDateEl = document.querySelector('#one-day-date');
+let oneDayIconEl = document.querySelector('#one-day-icon');
+let oneDayTempEl = document.querySelector('#one-day-temp');
+let oneDayWindEl = document.querySelector('#one-day-wind');
+let oneDayHumidityEl = document.querySelector('#one-day-humidity');
 
 
 
@@ -22,7 +28,7 @@ citySearchFormEl.addEventListener('submit', function(event){
   }).then(function(data){
     console.log(data);
     searchWeather(data[0].lat, data[0].lon, data[0].name)
-    // searchFiveDayWeather(data[0].lat, data[0].lon)
+    searchFiveDayWeather(data[0].lat, data[0].lon)
   })
 })
 
@@ -52,21 +58,37 @@ function searchWeather(lat, lon, cityName){
   })
 }
 
-// function searchFiveDayWeather(lat, lon){
-//   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts&units=imperial&appid=${apiKey}`).then(function(response){
-//     return response.json()
-//   }).then(function(data){
-//     console.log(data)
+function searchFiveDayWeather(lat, lon){
+  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts&units=imperial&appid=${apiKey}`).then(function(response){
+    return response.json()
+  }).then(function(data){
+    console.log(data)
 //     var fiveDayCard = $('<div>').addClass('card');
 //     var forecastTitleEl = $('<h3>').addClass('card-title').text('5-Day Forecast');
-//     var fiveDayIcon = (data.daily[0].weather[0].icon);
-//     var fiveDayWeather = [data.daily[0].temp, data.daily[0].wind_speed, data.daily[0].humidity];
-//     var fiveDayIconURL = `http://openweathermap.org/img/wn/${fiveDayIcon}@2x.png`;
+    var oneDayIcon = (data.daily[0].weather[0].icon);
+    // var twoDayIcon = (data.daily[1].weather[1].icon);
+    // var threeDayIcon = (data.daily[2].weather[2].icon);
+    // var fourDayIcon = (data.daily[3].weather[3].icon);
+    // var fiveDayIcon = (data.daily[4].weather[4].icon);
+
+    var oneDayWeather = [data.daily[0].temp[0], data.daily[0].wind_speed, data.daily[0].humidity];    //var twoDayWeather = [data.daily[1].temp, data.daily[1].wind_speed, data.daily[1].humidity];    var threeDayWeather = [data.daily[2].temp, data.daily[2].wind_speed, data.daily[2].humidity];    var fourDayWeather = [data.daily[3].temp, data.daily[3].wind_speed, data.daily[3].humidity];    var fiveDayWeather = [data.daily[4].temp, data.daily[4].wind_speed, data.daily[4].humidity];
+    
+    // var oneDayIconURL = `http://openweathermap.org/img/wn/${oneDayIcon}@2x.png`;    
+    // var twoDayIconURL = `http://openweathermap.org/img/wn/${twoDayIcon}@2x.png`;    
+    // var threeDayIconURL = `http://openweathermap.org/img/wn/${threeDayIcon}@2x.png`;    
+    // var fourDayIconURL = `http://openweathermap.org/img/wn/${fourDayIcon}@2x.png`;    
+    // var fiveDayIconURL = `http://openweathermap.org/img/wn/${fiveDayIcon}@2x.png`;
+
+    // oneDayDateEl.innerText = 
+    // oneDayIconEl.innerText = oneDayIconURL;
+    oneDayTempEl.innerText = 'Temp:' + ' ' + oneDayWeather[0] + 'ºF';
+    oneDayWindEl.innerText = 'Wind:' + ' ' + oneDayWeather[1] + ' ' + 'MPH';
+    oneDayHumidityEl.innerText = 'Humidity:' + ' ' + oneDayWeather[2] + ' ' + '%';
 //     var fiveDayIconEl = $('<h3>').addClass('card-title').text(fiveDayIconURL);
 //     var fiveDayWeatherEl = $('<ol>').addClass('current-weather').text(fiveDayWeather);
 //     $('.current-city').append(fiveDayCard.append(forecastTitleEl, fiveDayIconEl, fiveDayWeatherEl))
 //     $('.current-city-icon').append(fiveDayCard.append(fiveDayIconEl))
 //     $('#current-weather').append(fiveDayCard.append(fiveDayWeatherEl))
 //     console.log(fiveDayWeather)
-//   })
-// }
+  })
+}

@@ -13,6 +13,11 @@
     justify-content: space-around;
 }
 
+.five-day-forecast {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .current-weather-conditions{
     list-style: none;
 }
