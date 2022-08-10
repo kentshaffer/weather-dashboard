@@ -1,3 +1,8 @@
+body {
+    background-color: #555555;
+    color: bisque;
+}
+
 .custom-jumbotron {
     background-image: linear-gradient(to right, rgb(172, 172, 255), rgb(168, 249, 249));
     color: white;
@@ -13,6 +18,10 @@
     justify-content: space-around;
 }
 
+form {
+    padding: 20px;
+}
+
 .five-day-forecast {
     display: flex;
     flex-wrap: wrap;
@@ -20,4 +29,13 @@
 
 .current-weather-conditions{
     list-style: none;
+}
+
+.card {
+    background-color: #3333;
+    padding: 25px;
+}
+
+#uv {
+    color: black;
 }
