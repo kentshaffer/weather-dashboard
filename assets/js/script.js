@@ -18,7 +18,7 @@ citySearchFormEl.addEventListener('submit', function(event){
   var tempArray = JSON.parse(localStorage.getItem('cities')) || [] 
   tempArray.push(citySearchEL.value)
   localStorage.setItem('cities', JSON.stringify(tempArray))
-  fetch('http://api.openweathermap.org/geo/1.0/direct?q='+citySearchEL.value+'&limit=1&appid='+apiKey).then(function(response){
+  fetch('https://api.openweathermap.org/geo/1.0/direct?q='+citySearchEL.value+'&limit=1&appid='+apiKey).then(function(response){
     return response.json()
   }).then(function(data){
     console.log(data);
@@ -37,7 +37,7 @@ function searchWeather(lat, lon, cityName){
 
     var currentIcon = (data.current.weather[0].icon);
     var currentWeather = [data.current.temp, data.current.wind_speed, data.current.humidity, data.current.uvi];
-    var currentIconURL = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`;
+    var currentIconURL = `https://openweathermap.org/img/wn/${currentIcon}@2x.png`;
 
 
     // current weather inputs
@@ -79,7 +79,7 @@ var forecastDiv = document.querySelector('.five-day-forecast')
   for(var i = 1; i < 6; i++) {
     console.log(data);
     var forecastIcon = (data.daily[i].weather[0].icon);
-    var forecastIconURL = `http://openweathermap.org/img/wn/${forecastIcon}@2x.png`;
+    var forecastIconURL = `https://openweathermap.org/img/wn/${forecastIcon}@2x.png`;
     var imageEl = document.createElement('img');
     imageEl.setAttribute('src', forecastIconURL);
 
