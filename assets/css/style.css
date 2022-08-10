@@ -3,39 +3,46 @@ body {
     color: bisque;
 }
 
+/*header styling*/
 .custom-jumbotron {
     background-image: linear-gradient(to right, rgb(172, 172, 255), rgb(168, 249, 249));
     color: white;
 }
 
+/*header text styling*/
 .custom-display {
     font-weight: bolder;
 }
 
+/*current weather container styling*/
 .current-header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
+.current-weather-conditions{
+    list-style: none;
+}
+
+/*uv text styling*/
+#uv {
+    color: black;
+}
+
+/*text input and search button styling*/
 form {
     padding: 20px;
 }
 
+/*five day card styling*/
 .five-day-forecast {
     display: flex;
     flex-wrap: wrap;
 }
 
-.current-weather-conditions{
-    list-style: none;
-}
 
 .card {
     background-color: #3333;
     padding: 25px;
-}
-
-#uv {
-    color: black;
 }

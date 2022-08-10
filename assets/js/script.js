@@ -10,6 +10,7 @@ let currentWindEl = document.querySelector('#current-wind');
 let currentHumidityEl = document.querySelector('#current-humidity');
 let UV = document.querySelector('#uv');
 
+// search button and api fetch
 
 citySearchFormEl.addEventListener('submit', function(event){
   event.preventDefault()
@@ -26,7 +27,7 @@ citySearchFormEl.addEventListener('submit', function(event){
   })
 })
 
-
+// convert lat lon to city name and fetch weather data 
 
 function searchWeather(lat, lon, cityName){
   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts&units=imperial&appid=${apiKey}`).then(function(response){
@@ -38,6 +39,9 @@ function searchWeather(lat, lon, cityName){
     var currentWeather = [data.current.temp, data.current.wind_speed, data.current.humidity, data.current.uvi];
     var currentIconURL = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`;
 
+
+    // current weather inputs
+
     currentWeatherTitleEl.innerText = cityName;
     currentWeatherIconEl.setAttribute('src', currentIconURL);
     let currentDate = new Date((data.current.dt)* 1000).toDateString();
@@ -47,6 +51,8 @@ function searchWeather(lat, lon, cityName){
     currentWindEl.innerText = 'Wind:' + ' ' + currentWeather[1] + ' ' + 'MPH';
     currentHumidityEl.innerText = 'Humidity:' + ' ' + currentWeather[2] + ' ' + '%';
     UV.innerText = 'UV Index' + ' ' + currentWeather[3];
+
+    // uv color change
 
     if (currentWeather[3] >= 0 && currentWeather[3] <= 3) {
       UV.setAttribute('style', 'background-color: springgreen; padding: 2px; width: fit-content;');
@@ -59,11 +65,15 @@ function searchWeather(lat, lon, cityName){
   })
 }
 
+// five day weather data fetch
+
 function searchFiveDayWeather(lat, lon){
   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts&units=imperial&appid=${apiKey}`).then(function(response){
     return response.json()
   }).then(function(data){
     console.log(data)
+
+// for loop for five day forecast cards
 
 var forecastDiv = document.querySelector('.five-day-forecast')
   for(var i = 1; i < 6; i++) {
@@ -110,6 +120,7 @@ var forecastDiv = document.querySelector('.five-day-forecast')
   })
 }
 
+// local storage get item
 
 function recallSearchHistory() {
   var recallButton = document.querySelector('.prev-search');
@@ -120,11 +131,7 @@ function recallSearchHistory() {
       recallButtonEl.textContent = 'cities';
       recallButton.appendChild(recallButtonEl);
     }
-  //   localStorage.getItem('searchedCities');
 
-  //   var searchListButton = document.createElement('button');
-  //   searchListButton.setAttribute('class', 'prev-search');
-  //   append(searchListButton);
   }
 
 
